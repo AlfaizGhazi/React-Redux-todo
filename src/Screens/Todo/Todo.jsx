@@ -4,7 +4,13 @@ import {
   addTodoAction,
   removeAllTodoAction,
 } from "../../Services/Redux/Actions";
-import { StyledDiv, StyledInput, StyledButton } from "../../StyledComponents";
+import {
+  StyledDiv,
+  StyledInput,
+  StyledButton,
+  StyledMobileWrapper,
+  StyledWindowWrapper,
+} from "../../StyledComponents";
 import { TodoData } from "../../Components";
 
 export const Todo = () => {
@@ -41,19 +47,36 @@ export const Todo = () => {
           value={inputData}
           onChange={(event) => handleOnChange(event)}
         />
-        <StyledButton
-          className={isDarkMode ? "mx-2 btn btn-danger" : "mx-2 btn btn-dark"}
-          onClick={() => handleOnClick()}
-        >
-          Add Todo
-        </StyledButton>
-        <StyledButton
-          className={isDarkMode ? "mx-2 btn btn-danger" : "mx-2 btn btn-dark"}
-          onClick={() => dispatch(removeAllTodoAction())}
-          disabled={todoList.length >= 1 ? false : true}
-        >
-          Remove All Todo
-        </StyledButton>
+        <StyledWindowWrapper>
+          <StyledButton
+            className={isDarkMode ? "mx-2 btn btn-danger" : "mx-2 btn btn-dark"}
+            onClick={() => handleOnClick()}
+          >
+            Add Todo
+          </StyledButton>
+          <StyledButton
+            className={isDarkMode ? "mx-2 btn btn-danger" : "mx-2 btn btn-dark"}
+            onClick={() => dispatch(removeAllTodoAction())}
+            disabled={todoList.length >= 1 ? false : true}
+          >
+            Remove All Todo
+          </StyledButton>
+        </StyledWindowWrapper>
+        <StyledMobileWrapper>
+          <StyledButton
+            className={isDarkMode ? "mx-2 btn btn-danger" : "mx-2 btn btn-dark"}
+            onClick={() => handleOnClick()}
+          >
+            Add Todo
+          </StyledButton>
+          <StyledButton
+            className={isDarkMode ? "mx-2 btn btn-danger" : "mx-2 btn btn-dark"}
+            onClick={() => dispatch(removeAllTodoAction())}
+            disabled={todoList.length >= 1 ? false : true}
+          >
+            Remove All Todo
+          </StyledButton>
+        </StyledMobileWrapper>
       </StyledDiv>
       <TodoData isDarkMode={isDarkMode} todoList={todoList} />
     </>

@@ -5,8 +5,6 @@ import {
   StyledDiv,
   StyledSpan,
   StyledButton,
-  StyledH5,
-  StyledInput,
 } from "../../StyledComponents";
 
 export const TodoData = (props) => {
